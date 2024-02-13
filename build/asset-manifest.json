@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.ea0cb664.css",
-    "main.js": "/static/js/main.c540fff0.js",
-    "static/media/background.png": "/static/media/background.f45fa793e941686d9eb8.png",
-    "static/media/dancing_girl.svg": "/static/media/dancing_girl.4db4ccdde7812c52bc107cbf55b6ea1e.svg",
-    "index.html": "/index.html",
-    "main.ea0cb664.css.map": "/static/css/main.ea0cb664.css.map",
-    "main.c540fff0.js.map": "/static/js/main.c540fff0.js.map"
+    "main.css": "/.github.io/fundabilitytool/static/css/main.cc1a01a2.css",
+    "main.js": "/.github.io/fundabilitytool/static/js/main.e2f16eb9.js",
+    "static/media/background.png": "/.github.io/fundabilitytool/static/media/background.f45fa793e941686d9eb8.png",
+    "static/media/dancing_girl.svg": "/.github.io/fundabilitytool/static/media/dancing_girl.4db4ccdde7812c52bc107cbf55b6ea1e.svg",
+    "index.html": "/.github.io/fundabilitytool/index.html",
+    "main.cc1a01a2.css.map": "/.github.io/fundabilitytool/static/css/main.cc1a01a2.css.map",
+    "main.e2f16eb9.js.map": "/.github.io/fundabilitytool/static/js/main.e2f16eb9.js.map"
   },
   "entrypoints": [
-    "static/css/main.ea0cb664.css",
-    "static/js/main.c540fff0.js"
+    "static/css/main.cc1a01a2.css",
+    "static/js/main.e2f16eb9.js"
   ]
 }
