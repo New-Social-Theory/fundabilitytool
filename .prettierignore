@@ -1,0 +1,8 @@
+node_modules
+# Ignore artifacts:
+build
+coverage
+
+yarn.lock
+yarn-error.log
+*.json

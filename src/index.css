@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Gilroy';
+  font-weight: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+input,
+select,
+textarea {
+  font-family: 'Gilroy';
+}
+::-webkit-input-placeholder {
+  font-family: 'Gilroy';
+}
+:-moz-placeholder {
+  font-family: 'Gilroy';
+}
+::-moz-placeholder {
+  font-family: 'Gilroy';
+}
+:-ms-input-placeholder {
+  font-family: 'Gilroy';
+}
