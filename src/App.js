@@ -7,7 +7,6 @@ import Result from './pages/result'
 function App() {
   return (
     <div className="App">
-      <div>asdfghj,kjhgfdsadfgnhmjmhngfedwfvfghgdfhregsdghersfefwgrdetgef</div>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/onboarding" element={<Onboarding />} />
