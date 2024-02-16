@@ -30,3 +30,32 @@ textarea {
 :-ms-input-placeholder {
   font-family: 'Gilroy';
 }
+
+input[type='radio'] {
+  appearance: none;
+  border: 1px solid #b3bac3;
+  width: 18px;
+  height: 18px;
+  content: none;
+  outline: none;
+  margin: 0;
+  border-radius: 50%;
+}
+
+input[type='radio']:checked {
+  appearance: none;
+  outline: none;
+  padding: 0;
+  content: none;
+  border: none;
+}
+
+input[type='radio']:checked::before {
+  position: absolute;
+  content: url('./assets/radio_check.svg') !important;
+  font-weight: bolder;
+  font-size: 16px;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+}

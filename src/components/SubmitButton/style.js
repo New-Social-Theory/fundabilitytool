@@ -8,6 +8,7 @@ export const ButtonContainer = styled.button`
   background: #272727;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 `
 
 export const ButtonContent = styled.span`

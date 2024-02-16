@@ -1,20 +1,18 @@
-import { Wrapper, Label, InputContainer } from './style'
+import { Wrapper, Label, InputContainer, ErrorMessage } from './style'
 
+const Input = ({ name, placeholder, register, errors, required}) => {
 
-const Input = ({ name, placeholder, height, stateName ,register}) => {
-  
   return (
     <Wrapper>
       <Label>{name}</Label>
       <InputContainer
-        {...register(stateName, {
-          required: { value: true, message: `${name} is required` },
-        })}
-        height={height}
-        placeholder={placeholder}
+          placeholder={placeholder}
+          {...register(name, { required: required ? required : false })}
       />
-    </Wrapper>
+      <ErrorMessage>{errors && errors[name] && errors[name].message ? errors[name].message : null}</ErrorMessage>
+    </Wrapper>  
   )
 }
 
 export default Input
+  

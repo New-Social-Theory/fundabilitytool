@@ -24,3 +24,8 @@ export const TextareaContainer = styled.textarea`
     color: #b3bac3;
   }
 `
+
+export const ErrorMessage = styled.div`
+  font-size: 12px;
+  color: #ed4337;
+`

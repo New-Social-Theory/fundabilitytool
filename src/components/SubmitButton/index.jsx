@@ -1,8 +1,8 @@
 import { ButtonContainer, ButtonContent } from './style'
 
-const SubmitButton = ({ name, onClick, type = 'submit' }) => {
+const SubmitButton = ({ name, onClick, type = 'submit' , isDisabled}) => {
   return (
-    <ButtonContainer type={type} onClick={onClick}>
+    <ButtonContainer disabled={isDisabled} type={type} onClick={onClick}>
       <ButtonContent>{name}</ButtonContent>
     </ButtonContainer>
   )

@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import Home from './pages/home'
 import Onboarding from './pages/onboarding'
 import './index.css'
+import './fonts.css'
 import Result from './pages/result'
 
 function App() {
