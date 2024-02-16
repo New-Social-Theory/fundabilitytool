@@ -8,7 +8,9 @@ import { app } from '../../firebase/firebase'
 import { getDatabase, set, ref } from 'firebase/database'
 import { FormProvider, useForm } from 'react-hook-form'
 import { quiz } from '../../data/quizData'
+import { v4 as uuidv4 } from 'uuid';
 import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const db = getDatabase(app)
 
@@ -23,8 +25,11 @@ const Onboarding = () => {
     getValues,
   } = useForm()
 
+  const navigate = useNavigate()
+
   useEffect(() => {
     console.log(formState.errors)
+  
   }, [formState])
 
   const watchAllFields = watch()
@@ -46,9 +51,14 @@ const Onboarding = () => {
   }, [watchAllFields])
 
   const onSubmit = (data) => {
-    set(ref(db, 'usersQuiz/' + data['Please enter email']), {
+    const id = uuidv4();
+    set(ref(db, 'usersQuiz/' + id), {
       data,
+    }).then(() => {
+      localStorage.removeItem('formData')
+      navigate('/result')
     })
+
   }
 
   const renderQuiz = () => {
