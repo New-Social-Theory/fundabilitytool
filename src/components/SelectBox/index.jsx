@@ -125,7 +125,7 @@ const SelectBox = ({
               name={`${name}: Other`}
               label={false}
               placeholder={'Type your answer here'}
-              register={register}
+              register={isValueChecked ? register : null}
               disabled={!isValueChecked}
             />
           )}

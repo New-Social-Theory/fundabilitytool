@@ -31,7 +31,7 @@ const Input = ({ name, placeholder, register, errors, required, label = true, di
   return (
     <Wrapper disabled={disabled}>
       {label && <Label>{name}</Label>}
-      <InputContainer
+      {register ? <InputContainer
           placeholder={placeholder}
           {...register(name, { 
             required: required ? required : false,
@@ -39,7 +39,11 @@ const Input = ({ name, placeholder, register, errors, required, label = true, di
           
           })}
           disabled={disabled}
-      />
+      /> : <InputContainer
+      placeholder={placeholder}
+      disabled={disabled}
+  /> }
+      
       <ErrorMessage>{errors && errors[name] && errors[name].message ? errors[name].message : null}</ErrorMessage>
     </Wrapper>  
   )
