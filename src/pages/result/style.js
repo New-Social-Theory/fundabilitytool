@@ -1,33 +1,52 @@
 import styled from 'styled-components'
-import GradientBackground from '../../assets/background.png'
+import BackgroundVector from '../../assets/background-vector.svg'
 
 export const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
-  background: url(${GradientBackground}) no-repeat;
-  background-size: cover;
+  background: url(${BackgroundVector});
+  background-color: #052138;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  justify-content: space-between;
+  justify-content: space-evenly;
+`
+
+export const TitleContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
 `
 
 export const ImageContainer = styled.div``
 
 export const Description = styled.span`
   font-size: 14px;
-  line-height: 16px;
+  line-height: 18px;
   color: #ffffff;
-  max-width: 343px;
   text-align: center;
 `
 
+export const Range = styled.span`
+  font-size: 16px;
+  line-height: 21px;
+  color: #ffffff;
+  font-weight: 900;
+`
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  gap: 10px;
+`
+
 export const Title = styled.span`
-  font-size: 32px;
-  line-height: 43px;
+  font-size: 28px;
+  line-height: 34px;
   color: #f0f0f0;
-  font-family: 'Recoleta';
 `
 
 export const FooterContainer = styled.div`
@@ -37,19 +56,37 @@ export const FooterContainer = styled.div`
   background: white;
   border-top-left-radius: 35px;
   border-top-right-radius: 35px;
-  padding: 50px 20px;
+  height: 100%;
+  padding: 15px;
+  width: 100%;
+`
+
+export const HeaderContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  height: 140%;
 `
 
 export const FooterTitle = styled.span`
-  font-size: 20px;
+  font-size: 24px;
   line-height: 27px;
-  color: #001018;
-  font-family: 'Recoleta';
+  font-weight: 600;
+  color: #052138;
 `
 
 export const FooterDescription = styled.span`
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 16px;
-  color: #001018;
+  line-height: 18px;
+  color: #052138;
+`
+
+export const FooterContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
 `

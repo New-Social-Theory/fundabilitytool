@@ -2,14 +2,14 @@ import Input from '../../components/Input'
 import OnboardingHeader from '../../components/OnboardingHeader'
 import SelectBox from '../../components/SelectBox'
 import SubmitButton from '../../components/SubmitButton'
-import { Wrapper, FormContainer } from './style'
+import { Wrapper, FormContainer, QuizName } from './style'
 import Textarea from '../../components/Textarea'
 import { app } from '../../firebase/firebase'
 import { getDatabase, set, ref } from 'firebase/database'
 import { FormProvider, useForm } from 'react-hook-form'
 import { quiz } from '../../data/quizData'
 import { v4 as uuidv4 } from 'uuid';
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const db = getDatabase(app)
@@ -26,11 +26,11 @@ const Onboarding = () => {
   } = useForm()
 
   const navigate = useNavigate()
+  const [currentStep, setCurrentStep] = useState(1);
 
-  useEffect(() => {
-    console.log(formState.errors)
-  
-  }, [formState])
+  // useEffect(() => {
+  //   console.log(formState.errors)
+  // }, [formState])
 
   const watchAllFields = watch()
 
@@ -39,18 +39,36 @@ const Onboarding = () => {
 
     if (storedData && Object.keys(storedData).length) {
       Object.keys(storedData).forEach((groupName) => {
-        setValue(`${groupName}`, storedData[groupName])
+        if(groupName === 'step') {
+          setCurrentStep(storedData[groupName])
+        } 
+        if(groupName === 'fields') {
+          Object.keys(storedData[groupName]).forEach((field) => {
+            setValue(`${field}`, storedData[groupName][field])
+          })
+        }
+        
       })
     }
   }, [setValue])
 
   useEffect(() => {
     if (watchAllFields && Object.keys(watchAllFields).length) {
-      localStorage.setItem('formData', JSON.stringify(watchAllFields))
+      localStorage.setItem('formData', JSON.stringify({
+        step: currentStep,
+        fields: watchAllFields
+      }))
     }
   }, [watchAllFields])
 
   const onSubmit = (data) => {
+    console.log(data)
+
+    if(currentStep < 5) {
+      nextStep((prev) => prev + 1)
+      return
+    }
+
     const id = uuidv4();
     set(ref(db, 'usersQuiz/' + id), {
       data,
@@ -62,7 +80,15 @@ const Onboarding = () => {
   }
 
   const renderQuiz = () => {
-    return quiz.map((question) => {
+
+    const currentQuiz = quiz.find((q) => q.progress === currentStep);
+    console.log(currentQuiz)
+    if(!currentQuiz) throw new Error('no questions') 
+
+    return currentQuiz.questions.map((question) => {
+      // const question = currentQuiz.questions[index];
+      // console.log(currentQuiz.questions, index)
+      if (!question) return null;
       if (!question.questionType) {
         throw new Error('quiestionType field is required')
       } else if (!question.question) {
@@ -76,6 +102,7 @@ const Onboarding = () => {
           }
           return (
             <Input
+              key={question.question}
               name={question.question}
               placeholder={question.placeholder}
               errors={formState.errors}
@@ -89,6 +116,7 @@ const Onboarding = () => {
           }
           return (
             <SelectBox
+              key={question.question}
               name={question.question}
               type={question.questionType}
               items={question.answers}
@@ -102,23 +130,25 @@ const Onboarding = () => {
           if (!question.answers.length) {
             throw new Error('answers field is required')
           }
-          return (
-            <SelectBox
-              name={question.question}
-              type={question.questionType}
-              items={question.answers}
-              errors={formState.errors}
-              register={register}
-              getValues={getValues}
-              required={question.required}
-            />
-          )
+          return <>
+          <SelectBox
+                key={question.question}
+                name={question.question}
+                type={question.questionType}
+                items={question.answers}
+                errors={formState.errors}
+                register={register}
+                getValues={getValues}
+                required={question.required}
+              />
+          </>
         case 'textarea':
           if (!question.placeholder) {
             throw new Error('placeholder field is required')
           }
           return (
             <Textarea
+              key={question.question}
               name={question.question}
               placeholder={question.placeholder}
               register={register}
@@ -131,10 +161,16 @@ const Onboarding = () => {
     })
   }
 
+  const nextStep = () => {
+    setCurrentStep((prevStep) => prevStep + 1);
+  };
+
   return (
     <>
       <Wrapper>
-        <OnboardingHeader />
+        <OnboardingHeader step={currentStep}/>
+        <QuizName>{quiz && quiz[currentStep] && quiz[currentStep].name}</QuizName>
+        
         <FormContainer onSubmit={handleSubmit(onSubmit)}>
           <FormProvider control={control}>
             {renderQuiz()}

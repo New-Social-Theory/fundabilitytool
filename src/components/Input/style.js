@@ -4,6 +4,11 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
+  ${({ disabled }) =>
+    disabled &&
+    `
+      opacity: 0.5;
+  `}
 `
 
 export const Label = styled.div`
@@ -19,7 +24,7 @@ export const InputContainer = styled.input`
   padding: 10px;
   border-radius: 25px;
   outline: none;
-  padding: 13px;
+  padding: 11px;
   font-size: 14px;
   &::placeholder {
     color: #b3bac3;

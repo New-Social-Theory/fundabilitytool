@@ -1,12 +1,13 @@
 import styled from 'styled-components'
-import GradientBackground from '../../assets/background.png'
+import BackgroundVector from '../../assets/background-vector.svg'
 
 export const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
-  background: url(${GradientBackground}) no-repeat;
   background-position: bottom;
+  background-color: #052138;
   background-size: cover;
+  background-image: url(${BackgroundVector});
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -26,7 +27,8 @@ export const Title = styled.span`
   font-size: 36px;
   line-height: 48px;
   color: #f0f0f0;
-  font-family: 'Recoleta';
+  font-family: 'ClashGrotesk';
+  font-weight: 400;
 `
 
 export const TitleBold = styled.span`
@@ -55,7 +57,7 @@ export const Button = styled.div`
 export const ButtonWrapper = styled.div`
   background: radial-gradient(
     circle at center,
-    rgba(239, 191, 36, 0.7) 30%,
+    rgb(75 255 196 / 40%) 30%,
     transparent,
     transparent
   );
@@ -78,15 +80,27 @@ export const ButtonContent = styled.span`
 export const FooterContent = styled.span`
   display: flex;
   align-items: center;
-  font-size: 15px;
+  font-size: 10px;
   line-height: 20px;
-  color: #000000;
+  color: #ffffff;
   justify-content: center;
-  font-weight: 500;
+  font-weight: 400;
 `
 
 export const Footer = styled.div`
   width: 100%;
   position: fixed;
   bottom: 30px;
+`
+
+export const CompanyContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+export const LogoTitle = styled.span`
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+  margin-top: 5px;
 `

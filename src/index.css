@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Gilroy';
+  font-family: 'Satoshi';
   font-weight: normal;
 }
 
@@ -16,22 +16,22 @@ button,
 input,
 select,
 textarea {
-  font-family: 'Gilroy';
+  font-family: 'Satoshi';
 }
 ::-webkit-input-placeholder {
-  font-family: 'Gilroy';
+  font-family: 'Satoshi';
 }
 :-moz-placeholder {
-  font-family: 'Gilroy';
+  font-family: 'Satoshi';
 }
 ::-moz-placeholder {
-  font-family: 'Gilroy';
+  font-family: 'Satoshi';
 }
 :-ms-input-placeholder {
-  font-family: 'Gilroy';
+  font-family: 'Satoshi';
 }
 
-input[type='radio'] {
+input[type='checkbox'] {
   appearance: none;
   border: 1px solid #b3bac3;
   width: 18px;
@@ -42,7 +42,7 @@ input[type='radio'] {
   border-radius: 50%;
 }
 
-input[type='radio']:checked {
+input[type='checkbox']:checked {
   appearance: none;
   outline: none;
   padding: 0;
@@ -50,11 +50,11 @@ input[type='radio']:checked {
   border: none;
 }
 
-input[type='radio']:checked::before {
+input[type='checkbox']:checked::before {
   position: absolute;
   content: url('./assets/radio_check.svg') !important;
   font-weight: bolder;
-  font-size: 16px;
+  font-size: 14px;
   border-radius: 50%;
   width: 18px;
   height: 18px;

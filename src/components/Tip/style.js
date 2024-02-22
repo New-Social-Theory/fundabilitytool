@@ -17,16 +17,16 @@ export const Container = styled.div`
 
 export const Title = styled.span`
     font-size 18px;
-    font-weight: 500;
+    font-weight: 700;
     line-height: 24px;
     color: #001018;
     max-width: 335px;
 `
 
 export const Description = styled.span`
-    font-size 13px;
+    font-size 16px;
     font-weight: 400;
-    line-height: 15px;
-    color: #8C96A2;
+    line-height: 21px;
+    color: #687787;
     max-width: 335px;
 `

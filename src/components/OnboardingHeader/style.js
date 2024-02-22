@@ -7,10 +7,11 @@ export const Title = styled.div`
 `
 
 export const TitleContent = styled.span`
-  font-weight: 400;
+  font-weight: 600;
   font-size: 32px;
-  color: #001018;
-  font-family: 'Recoleta';
+  color: #124a77;
+
+  font-family: 'ClashGrotesk';
 `
 
 export const TitleDescription = styled.span`

@@ -8,13 +8,20 @@ import {
   FooterContent,
   Footer,
   TitleBold,
-  ButtonWrapper
+  ButtonWrapper,
+  CompanyContainer,
+  LogoTitle
 } from './style'
 import { useNavigate } from 'react-router-dom'
+import Logo from '../../assets/logo.svg'
+
 
 const Home = () => {
   const navigate = useNavigate()
   const handleRedirect = () => {
+    if(localStorage.getItem('formData')) {
+      localStorage.removeItem('formData')
+    }
     navigate('/onboarding')
   }
 
@@ -22,11 +29,15 @@ const Home = () => {
     <>
       <Wrapper>
         <Content>
+          <CompanyContainer>
+            <img src={Logo} />
+            <LogoTitle>Capital.P</LogoTitle>
+          </CompanyContainer>
           <Title>
-            Welcome to the <TitleBold>Fundability Survey</TitleBold>
+            Welcome to the <TitleBold>Fundability tool</TitleBold>
           </Title>
           <Description>
-            This survey will assess the fundability of yourbusiness or project
+            This survey will assess the fundability of your business or project
             by evaluating key factorsthat potential funders consider
           </Description>
           <ButtonWrapper>
@@ -37,7 +48,7 @@ const Home = () => {
           
         </Content>
         <Footer>
-          <FooterContent>POWERED BY CAPITAL P</FooterContent>
+          <FooterContent>Powered by © 2024 Capital P.</FooterContent>
         </Footer>
       </Wrapper>
     </>

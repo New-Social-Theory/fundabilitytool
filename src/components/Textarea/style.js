@@ -18,7 +18,7 @@ export const TextareaContainer = styled.textarea`
   border: none;
   border-radius: 25px;
   outline: none;
-  padding: 13px;
+  padding: 11px;
   font-size: 14px;
   &::placeholder {
     color: #b3bac3;
