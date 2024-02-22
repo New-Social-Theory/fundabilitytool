@@ -28,10 +28,6 @@ const Onboarding = () => {
   const navigate = useNavigate()
   const [currentStep, setCurrentStep] = useState(1);
 
-  // useEffect(() => {
-  //   console.log(formState.errors)
-  // }, [formState])
-
   const watchAllFields = watch()
 
   useEffect(() => {
@@ -68,10 +64,11 @@ const Onboarding = () => {
       nextStep((prev) => prev + 1)
       return
     }
-
+    const points = JSON.parse(localStorage.getItem('quizPoints'))
     const id = uuidv4();
+    const quizData = {...data, points: points}
     set(ref(db, 'usersQuiz/' + id), {
-      data,
+      quizData
     }).then(() => {
       localStorage.removeItem('formData')
       navigate('/result')
@@ -82,12 +79,9 @@ const Onboarding = () => {
   const renderQuiz = () => {
 
     const currentQuiz = quiz.find((q) => q.progress === currentStep);
-    console.log(currentQuiz)
     if(!currentQuiz) throw new Error('no questions') 
 
     return currentQuiz.questions.map((question) => {
-      // const question = currentQuiz.questions[index];
-      // console.log(currentQuiz.questions, index)
       if (!question) return null;
       if (!question.questionType) {
         throw new Error('quiestionType field is required')
@@ -108,6 +102,8 @@ const Onboarding = () => {
               errors={formState.errors}
               register={register}
               required={question.required}
+              inputPoints = {question.points}
+              watch={watch}
             />
           )
         case 'checkbox':
@@ -140,6 +136,7 @@ const Onboarding = () => {
                 register={register}
                 getValues={getValues}
                 required={question.required}
+                watch={watch}
               />
           </>
         case 'textarea':
@@ -155,6 +152,8 @@ const Onboarding = () => {
               errors={formState.errors}
               rows={4}
               required={question.required}
+              inputPoints = {question.points}
+              watch={watch}
             />
           )
       }
@@ -170,7 +169,6 @@ const Onboarding = () => {
       <Wrapper>
         <OnboardingHeader step={currentStep}/>
         <QuizName>{quiz && quiz[currentStep] && quiz[currentStep].name}</QuizName>
-        
         <FormContainer onSubmit={handleSubmit(onSubmit)}>
           <FormProvider control={control}>
             {renderQuiz()}

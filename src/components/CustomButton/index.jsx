@@ -1,9 +1,9 @@
 import { ButtonContainer, ButtonContent } from './style'
 
-const CustomButton = ({ name, backgroundColor }) => {
+const CustomButton = ({ name, backgroundColor, color }) => {
   return (
     <ButtonContainer backgroundColor={backgroundColor}>
-      <ButtonContent>{name}</ButtonContent>
+      <ButtonContent color={color}>{name}</ButtonContent>
     </ButtonContainer>
   )
 }

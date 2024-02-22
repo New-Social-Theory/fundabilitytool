@@ -1,11 +1,37 @@
 import styled from 'styled-components'
 import BackgroundVector from '../../assets/background-vector.svg'
+import BackgroundVector2 from '../../assets/background_vector2.svg'
+import BackgroundVector3 from '../../assets/background_vector3.svg'
+
+const renderBackgroundUrl = (type) => {
+  switch (type) {
+    case 'high':
+      return `url(${BackgroundVector})`
+    case 'mid':
+      return `url(${BackgroundVector2})`
+    case 'low':
+      return `url(${BackgroundVector3})`
+  }
+}
+
+const renderBackgroundColor = (type) => {
+  switch (type) {
+    case 'high':
+      return '#052138'
+    case 'mid':
+      return '#4BFFC4'
+    case 'low':
+      return '#FFC700'
+  }
+}
 
 export const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
-  background: url(${BackgroundVector});
-  background-color: #052138;
+  background: ${(props) => renderBackgroundUrl(props.type)};
+  background-color: ${(props) => renderBackgroundColor(props.type)};
+  background-repeat: no-repeat;
+  background-size: contain;
 
   display: flex;
   flex-direction: column;
@@ -27,14 +53,15 @@ export const ImageContainer = styled.div``
 export const Description = styled.span`
   font-size: 14px;
   line-height: 18px;
-  color: #ffffff;
+  color: ${(props) => (props.type === 'high' ? '#f0f0f0' : '#052138')};
   text-align: center;
+  padding: 0px 35px;
 `
 
 export const Range = styled.span`
   font-size: 16px;
   line-height: 21px;
-  color: #ffffff;
+  color: ${(props) => (props.type === 'high' ? '#f0f0f0' : '#052138')};
   font-weight: 900;
 `
 
@@ -46,7 +73,7 @@ export const ButtonContainer = styled.div`
 export const Title = styled.span`
   font-size: 28px;
   line-height: 34px;
-  color: #f0f0f0;
+  color: ${(props) => (props.type === 'high' ? '#f0f0f0' : '#052138')};
 `
 
 export const FooterContainer = styled.div`
@@ -58,7 +85,6 @@ export const FooterContainer = styled.div`
   border-top-right-radius: 35px;
   height: 100%;
   padding: 15px;
-  width: 100%;
 `
 
 export const HeaderContainer = styled.div`

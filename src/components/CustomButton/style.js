@@ -15,4 +15,5 @@ export const ButtonContent = styled.span`
   font-weight: 600;
   color: #052138;
   padding: 12px;
+  color: ${(props) => props.color};
 `

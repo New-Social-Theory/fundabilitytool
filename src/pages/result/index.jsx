@@ -12,28 +12,67 @@ import {
   HeaderContainer,
   FooterContent
 } from './style'
-import Man from '../../assets/result_tennis.svg'
 import Tip from '../../components/Tip'
 import CustomButton from '../../components/CustomButton'
+import { useEffect, useState } from 'react'
+import { result } from '../../data/resultData'
+import Man from '../../assets/result_tennis.svg'
+import Amazonka from '../../assets/result_amazonka.svg'
+import Holiday from '../../assets/result_holiday.svg'
+
 
 const Result = () => {
+  const points = JSON.parse(localStorage.getItem('quizPoints'))
+  const [resultData, setResultData] = useState()
+
+  useEffect(() => {
+    if(points){
+        if(points >= 0 && points <= 35){
+          setResultData(result[2])
+        }else if (points >= 36 && points <= 70) {
+          setResultData(result[1])
+        } else {
+          setResultData(result[0])
+        }
+    }
+  },[])
+
+  const rednerImageUrl = () => {
+    switch(resultData.type) {
+      case 'high' : 
+      return Man
+      case 'mid' : 
+      return Amazonka
+      case 'low' :
+      return Holiday
+  }
+  }
   return (
-    <Wrapper>
+    <>
+    {resultData &&
+    <Wrapper type={resultData.type}>
       <HeaderContainer>
         <ImageContainer>
-          <img src={Man} alt="Man" width={165} height={165} />
+          <img src={rednerImageUrl()} width={165} height={165} />
         </ImageContainer>
         <TitleContainer>
-          <Title>High Tier Fundability</Title>
-          <Description>
+          <Title type={resultData.type}>{resultData.name}</Title>
+          <Description type={resultData.type}>
             Congratulations on completing the survey! Based on your responses,
             we have evaluated the fundability potential of your profile
           </Description>
-          <Description>Here are your results:</Description>
-          <Range>109 out of 109</Range>
+          <Description type={resultData.type}>Here are your results:</Description>
+          <Range type={resultData.type}>{points} out of 109</Range>
           <ButtonContainer>
-            <CustomButton name="Share my results" backgroundColor="#4BFFC4" />
-            <CustomButton name="Send to my email" backgroundColor="#D9DDE1" />
+            <CustomButton 
+            name="Share my results" 
+            backgroundColor={resultData.type === 'high' ? "#4BFFC4" : '#052138'} 
+            color={resultData.type === 'high' ? "#052138" : '#ffffff'}
+            />
+            <CustomButton 
+            name="Send to my email" 
+            color={'#001018'}
+            backgroundColor="#ffffff" />
           </ButtonContainer>
         </TitleContainer>
       </HeaderContainer>
@@ -47,12 +86,14 @@ const Result = () => {
           </FooterDescription>
           <Tip
             title="TIP #1"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            description={resultData.recomendation}
           />
         </FooterContent>
         </FooterContainer>
         
     </Wrapper>
+}
+    </>
   )
 }
 

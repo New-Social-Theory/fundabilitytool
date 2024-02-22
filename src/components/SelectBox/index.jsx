@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import Input from '../Input'
 import {
   Wrapper,
@@ -18,7 +19,54 @@ const SelectBox = ({
   errors,
   required,
   getValues,
+  watch
 }) => {
+
+  const [previousSelectedRadioButton, setPreviousSelectedRadioButton] = useState(null)
+
+  useEffect(() => {
+    if(watch && watch(name)){
+      setPreviousSelectedRadioButton(watch(name))
+    }
+  },[])
+
+  const handleCheckboxChange = (event) => {
+    const { value, checked } = event.target;
+    const findOption = items.find(item => item.value === value)
+    const points = JSON.parse(localStorage.getItem('quizPoints'))
+    if(points){
+      if(checked){
+        localStorage.setItem("quizPoints", JSON.stringify(points + findOption.points))
+        return
+      }
+      localStorage.setItem("quizPoints", JSON.stringify(points - findOption.points))
+      return
+    }
+
+    localStorage.setItem("quizPoints", JSON.stringify(findOption.points))
+    return
+  }
+
+  const handleRadioChange = (event) => {
+    const { value } = event.target;
+    const findOption = items.find(item => item.value === value)
+    const points = JSON.parse(localStorage.getItem('quizPoints'))
+    if(points){
+      if(previousSelectedRadioButton){
+        const findPreviousOption = items.find(item => item.value === previousSelectedRadioButton)
+        localStorage.setItem("quizPoints", JSON.stringify(points - findPreviousOption.points + findOption.points))
+        setPreviousSelectedRadioButton(value)
+        return
+      }
+      setPreviousSelectedRadioButton(value)
+      localStorage.setItem("quizPoints", JSON.stringify(points + findOption.points))
+      return
+    }
+
+    localStorage.setItem("quizPoints", JSON.stringify(findOption.points))
+    return
+  }
+
   const renderItems = () => {
     if (type === 'checkbox') {
       return (
@@ -29,7 +77,7 @@ const SelectBox = ({
             return (
               <>
                 <InputContainerCheckbox
-                  key={item.name}
+                  key={item.value}
                   className={isValueChecked ? 'checked' : ''}
                 >
                   <InputContentCheckbox
@@ -39,6 +87,7 @@ const SelectBox = ({
                     className={isValueChecked ? 'checked' : ''}
                     {...register(name, {
                       required: required ? required : false,
+                      onChange: (e) => handleCheckboxChange(e)
                     })}
                   />
                   <span> {item.label}</span>
@@ -51,13 +100,12 @@ const SelectBox = ({
     }
 
     return items.map((item) => {
-      console.log(item, 'item')
       const isValueChecked =
         getValues(name) && getValues(name).includes(item.value)
       return (
         <>
           <InputContainer
-            key={item.name}
+            key={item.value}
             className={isValueChecked ? 'checked' : ''}
           >
             <InputContent
@@ -65,7 +113,10 @@ const SelectBox = ({
               type="radio"
               value={item.value}
               className={isValueChecked ? 'checked' : ''}
-              {...register(name, { required: required ? required : false })}
+              {...register(name, { 
+                required: required ? required : false,
+                onChange: (e) => handleRadioChange(e)
+              })}
             />
            <span> {item.label}</span>
           </InputContainer>
