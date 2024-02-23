@@ -11,7 +11,6 @@ const Input = ({ name, placeholder, register, errors, required, label = true, di
   },[])
 
   const handleChange = (event) => {
-    console.log(event)
     const { value } = event.target;
     const points = JSON.parse(localStorage.getItem('quizPoints'))
     if(value){

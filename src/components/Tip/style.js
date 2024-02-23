@@ -3,16 +3,17 @@ import styled from 'styled-components'
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  border-radius: 5px;
+  border-radius: 8px;
   border: 1px solid #d9dde1;
 
   width: 100%;
 `
 
 export const Container = styled.div`
-  padding: 10px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
+  gap: 5px;
 `
 
 export const Title = styled.span`
@@ -28,5 +29,5 @@ export const Description = styled.span`
     font-weight: 400;
     line-height: 21px;
     color: #687787;
-    max-width: 335px;
+    width: 100%;
 `

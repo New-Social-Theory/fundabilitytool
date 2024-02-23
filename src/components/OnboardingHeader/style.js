@@ -3,7 +3,6 @@ import styled from 'styled-components'
 export const Title = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
 `
 
 export const TitleContent = styled.span`
@@ -15,7 +14,7 @@ export const TitleContent = styled.span`
 `
 
 export const TitleDescription = styled.span`
-  font-size: 18px;
+  font-size: 16px;
   color: #001018;
   line-height: 21px;
 `

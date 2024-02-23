@@ -33,9 +33,9 @@ textarea {
 
 input[type='checkbox'] {
   appearance: none;
-  border: 1px solid #b3bac3;
-  width: 18px;
-  height: 18px;
+  border: 1px solid #eff1f3;
+  width: 16px;
+  height: 16px;
   content: none;
   outline: none;
   margin: 0;
@@ -58,4 +58,43 @@ input[type='checkbox']:checked::before {
   border-radius: 50%;
   width: 18px;
   height: 18px;
+}
+
+button {
+  outline: none;
+  border: none;
+}
+
+input[type='radio'] {
+  appearance: none;
+  border: 2px solid #eff1f3;
+  width: 16px;
+  height: 16px;
+  content: none;
+  outline: none;
+  margin: 0;
+  border-radius: 50%;
+}
+
+input[type='radio']:checked {
+  appearance: none;
+  outline: none;
+  padding: 0;
+  content: none;
+  border-color: #001018;
+  border-width: 2px;
+  position: relative;
+}
+
+input[type='radio']:checked::before {
+  position: absolute;
+  content: '';
+  font-weight: bolder;
+  font-size: 14px;
+  border-radius: 50%;
+  background: #001018;
+  width: 8px;
+  height: 8px;
+  top: 2px;
+  left: 2px;
 }

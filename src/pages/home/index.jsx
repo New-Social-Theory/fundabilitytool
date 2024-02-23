@@ -36,7 +36,7 @@ const Home = () => {
           </Title>
           <Description>
             This survey will assess the fundability of your business or project
-            by evaluating key factorsthat potential funders consider
+            by evaluating key factors that potential funders consider
           </Description>
           <ButtonWrapper>
             <Button onClick={handleRedirect}>

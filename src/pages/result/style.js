@@ -31,13 +31,12 @@ export const Wrapper = styled.div`
   background: ${(props) => renderBackgroundUrl(props.type)};
   background-color: ${(props) => renderBackgroundColor(props.type)};
   background-repeat: no-repeat;
-  background-size: contain;
-
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  justify-content: space-evenly;
+  @media (min-width: 380px) {
+    background-repeat: repeat;
+  }
 `
 
 export const TitleContainer = styled.div`
@@ -45,7 +44,7 @@ export const TitleContainer = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 10px;
+  gap: 20px;
 `
 
 export const ImageContainer = styled.div``
@@ -74,6 +73,7 @@ export const Title = styled.span`
   font-size: 28px;
   line-height: 34px;
   color: ${(props) => (props.type === 'high' ? '#f0f0f0' : '#052138')};
+  font-weight: 600;
 `
 
 export const FooterContainer = styled.div`
@@ -83,8 +83,8 @@ export const FooterContainer = styled.div`
   background: white;
   border-top-left-radius: 35px;
   border-top-right-radius: 35px;
-  height: 100%;
   padding: 15px;
+  width: calc(100% - 30px);
 `
 
 export const HeaderContainer = styled.div`
@@ -92,8 +92,9 @@ export const HeaderContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 30px;
-  height: 140%;
+  gap: 20px;
+  flex: 1;
+  padding: 30px 0;
 `
 
 export const FooterTitle = styled.span`
@@ -113,6 +114,6 @@ export const FooterDescription = styled.span`
 export const FooterContent = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
   padding: 10px;
 `

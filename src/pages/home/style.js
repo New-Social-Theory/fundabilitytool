@@ -1,17 +1,18 @@
 import styled from 'styled-components'
-import BackgroundVector from '../../assets/background-vector.svg'
+// import BackgroundVector from '../../assets/background-vector.svg'
 
 export const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
-  background-position: bottom;
   background-color: #052138;
-  background-size: cover;
-  background-image: url(${BackgroundVector});
+  // background-size: cover;
+  background-image: url(https://assets-global.website-files.com/65a61feac89be4ad21205289/65d2e73955604fbc0431dc33_TestBG.gif);
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  background-position: 50% -20px;
+  background-size: auto;
 `
 
 export const Content = styled.div`
@@ -40,8 +41,10 @@ export const TitleBold = styled.span`
 
 export const Description = styled.span`
   font-size: 14px;
-  line-height: 16px;
+  line-height: 19px;
   color: #ffffff;
+  padding: 0px 9px;
+  font-weight: 400;
 `
 
 export const Button = styled.div`
@@ -57,7 +60,7 @@ export const Button = styled.div`
 export const ButtonWrapper = styled.div`
   background: radial-gradient(
     circle at center,
-    rgb(75 255 196 / 40%) 30%,
+    rgba(75, 255, 196, 0.2) 45%,
     transparent,
     transparent
   );
@@ -73,8 +76,9 @@ export const ButtonContent = styled.span`
   align-items: center;
   font-size: 20px;
   line-height: 24px;
-  color: #001018;
-  font-weight: bold;
+  color: #052138;
+  font-weight: 700;
+  font-family: 'ClashGrotesk';
 `
 
 export const FooterContent = styled.span`

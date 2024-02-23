@@ -7,9 +7,9 @@ export const Wrapper = styled.div`
 `
 
 export const Label = styled.div`
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 24px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 18px;
   color: #001018;
 `
 

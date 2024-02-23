@@ -5,15 +5,15 @@ export const ButtonContainer = styled.button`
   align-items: center;
   background: ${(props) => props.backgroundColor};
   border: none;
-  border-radius: 15px;
+  border-radius: 80px;
   cursor: pointer;
+  padding: 16px 30px;
 `
 
 export const ButtonContent = styled.span`
   font-size: 14px;
   line-height: 16px;
-  font-weight: 600;
+  font-weight: 500;
   color: #052138;
-  padding: 12px;
   color: ${(props) => props.color};
 `

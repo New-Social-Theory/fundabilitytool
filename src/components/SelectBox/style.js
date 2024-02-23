@@ -3,13 +3,13 @@ import styled, { css } from 'styled-components'
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
 `
 
 export const Label = styled.div`
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 24px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 18px;
   color: #001018;
 `
 
@@ -53,16 +53,13 @@ export const InputContainerCheckbox = styled.label`
   user-select: none;
   gap: 5px;
   border-radius: 0;
-  color: #b3bac3;
+  color: #001018;
   max-width: 180px;
   min-height: 40px;
   background-color: white;
   justify-content: center;
-  border: 1px solid grey;
+  border: 1px solid #eff1f3;
   border-radius: 20px;
-  &.checked {
-    color: black;
-  }
 `
 
 export const InputContainer = styled.label`
@@ -73,10 +70,10 @@ export const InputContainer = styled.label`
   user-select: none;
   gap: 5px;
   border-radius: 0;
-  color: #b3bac3;
+  color: #001018;
 
   &.checked {
-    color: black;
+    color: #001018;
   }
   > span {
     display: inline-block;
@@ -84,7 +81,6 @@ export const InputContainer = styled.label`
       text-transform: uppercase;
     }
   }
-  
 `
 
 export const InputContent = styled.input`
