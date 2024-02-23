@@ -59,7 +59,7 @@ export const InputContainerCheckbox = styled.label`
   background-color: white;
   justify-content: center;
   border: 1px solid #eff1f3;
-  border-radius: 20px;
+  border-radius: 150px;
 `
 
 export const InputContainer = styled.label`
