@@ -67,7 +67,7 @@ export const quiz = [
           { label: 'Streaming', value: 'Streaming', points: 12 },
           { label: 'Independent Media', value: 'Independent Media', points: 13 },
           { label: 'Entertainment', value: 'Entertainment', points: 14 },
-          { label: 'Welness', value: 'Welness' , points: 15},
+          { label: 'Wellness', value: 'Wellness' , points: 15},
           { label: 'Anime', value: 'Anime' , points: 16},
           { label: 'History', value: 'History', points: 17 },
         ],
