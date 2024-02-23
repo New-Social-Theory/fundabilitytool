@@ -34,7 +34,7 @@ const Home = () => {
             <LogoTitle>Capital.P</LogoTitle>
           </CompanyContainer>
           <Title>
-            Welcome to the <TitleBold>Fundability tool</TitleBold>
+            Welcome to the <TitleBold>Fundability Tool</TitleBold>
           </Title>
           <Description>
             This survey will assess the fundability of your business or project
