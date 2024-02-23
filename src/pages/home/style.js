@@ -96,6 +96,7 @@ export const Footer = styled.div`
 export const CompanyContainer = styled.div`
   display: flex;
   flex-direction: column;
+  width: 150px;
 `
 
 export const LogoTitle = styled.span`

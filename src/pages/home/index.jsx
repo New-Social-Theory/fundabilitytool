@@ -9,11 +9,10 @@ import {
   Footer,
   TitleBold,
   ButtonWrapper,
-  CompanyContainer,
-  LogoTitle
+  CompanyContainer
 } from './style'
 import { useNavigate } from 'react-router-dom'
-import Logo from '../../assets/logo.svg'
+import Logo from '../../assets/capital_p_logo.png'
 
 
 const Home = () => {
@@ -30,8 +29,7 @@ const Home = () => {
       <Wrapper>
         <Content>
           <CompanyContainer>
-            <img src={Logo} />
-            <LogoTitle>Capital.P</LogoTitle>
+            <img src={Logo} width="100%" height="100%" />
           </CompanyContainer>
           <Title>
             Welcome to the <TitleBold>Fundability tool</TitleBold>
