@@ -32,7 +32,7 @@ const Home = () => {
             <img src={Logo} width="100%" height="100%" />
           </CompanyContainer>
           <Title>
-            Welcome to the <TitleBold>Fundability Tool</TitleBold>
+            Welcome to the Capital P <TitleBold>Fundability Tool</TitleBold>
           </Title>
           <Description>
             This survey will assess the fundability of your business or project
