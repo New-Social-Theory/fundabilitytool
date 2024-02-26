@@ -63,7 +63,7 @@ const Result = () => {
           </Description>
           <Description type={resultData.type}>Here are your results:</Description>
           <Range type={resultData.type}>{points} out of 109</Range>
-          <ButtonContainer>
+{/*           <ButtonContainer>
             <CustomButton 
             name="Share my results" 
             backgroundColor={resultData.type === 'high' ? "#4BFFC4" : '#052138'} 
@@ -73,7 +73,7 @@ const Result = () => {
             name="Send to my email" 
             color={'#001018'}
             backgroundColor="#ffffff" />
-          </ButtonContainer>
+          </ButtonContainer> */}
         </TitleContainer>
       </HeaderContainer>
 
