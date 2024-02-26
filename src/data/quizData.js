@@ -101,7 +101,7 @@ export const quiz = [
         questionType: 'radio',
         question: 'How many years have you been generating content?',
         answers: [
-          { label: 'Drop down', value: 'Drop down', points: 1 },
+          { label: 'Less than 1 year', value: 'Less than 1 year', points: 1 },
           { label: '1 - 20 years', value: '1 - 20 years', points: 1 },
           { label: 'less than 1 year', value: 'less than 1 year', points: 1 },
         ],
