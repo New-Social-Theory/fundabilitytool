@@ -77,7 +77,7 @@ const Result = () => {
         </TitleContainer>
       </HeaderContainer>
 
-      <FooterContainer>
+{/*       <FooterContainer>
         <FooterContent>
           <FooterTitle>Recommendations</FooterTitle>
           <FooterDescription>
@@ -89,7 +89,7 @@ const Result = () => {
             description={resultData.recomendation}
           />
         </FooterContent>
-        </FooterContainer>
+        </FooterContainer> */}
         
     </Wrapper>
 }
