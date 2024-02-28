@@ -4,16 +4,9 @@ import {
   Range,
   Title,
   Description,
-  FooterDescription,
-  FooterTitle,
-  ButtonContainer,
-  FooterContainer,
   TitleContainer,
   HeaderContainer,
-  FooterContent
 } from './style'
-import Tip from '../../components/Tip'
-import CustomButton from '../../components/CustomButton'
 import { useEffect, useState } from 'react'
 import { result } from '../../data/resultData'
 import Man from '../../assets/result_tennis.svg'
