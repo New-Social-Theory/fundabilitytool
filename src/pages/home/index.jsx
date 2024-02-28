@@ -32,10 +32,10 @@ const Home = () => {
             <img src={Logo} width="100%" height="100%" />
           </CompanyContainer>
           <Title>
-            Welcome to the Capital P <TitleBold>Fundability Tool</TitleBold>
+            Welcome to the Capital P <TitleBold>Creator Credit Rating</TitleBold>
           </Title>
           <Description>
-            This survey will assess the fundability of your business or project
+            This rating will help assess the fundability of your business or project
             by evaluating key factors that potential funders consider
           </Description>
           <ButtonWrapper>
