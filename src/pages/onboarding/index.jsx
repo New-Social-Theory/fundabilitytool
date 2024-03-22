@@ -104,8 +104,27 @@ const Onboarding = () => {
               required={question.required}
               inputPoints = {question.points}
               watch={watch}
+              currency={question.currency}
             />
           )
+        case 'number':
+            if (!question.placeholder) {
+              throw new Error('placeholder field is required')
+            }
+            return (
+              <Input
+                key={question.question}
+                name={question.question}
+                placeholder={question.placeholder}
+                errors={formState.errors}
+                register={register}
+                required={question.required}
+                inputPoints = {question.points}
+                type={question.questionType}
+                watch={watch}
+                currency={question.currency}
+              />
+            )
         case 'checkbox':
           if (!question.answers.length) {
             throw new Error('answers field is required')
@@ -120,6 +139,7 @@ const Onboarding = () => {
               register={register}
               getValues={getValues}
               required={question.required}
+              max={question.max}
             />
           )
         case 'radio':

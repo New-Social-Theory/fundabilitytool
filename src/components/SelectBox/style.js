@@ -52,9 +52,9 @@ export const InputContainerCheckbox = styled.label`
   font-size: 14px;
   user-select: none;
   gap: 5px;
+  width: fit-content;
   border-radius: 0;
   color: #001018;
-  max-width: 180px;
   min-height: 40px;
   background-color: white;
   justify-content: center;
@@ -132,4 +132,16 @@ export const InputContentCheckbox = styled.input`
 export const ErrorMessage = styled.div`
   font-size: 12px;
   color: #ed4337;
+`
+export const CheckBoxContainer = styled.div``
+
+export const CheckBoxOther = styled.div``
+
+export const CheckBoxDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  &:last-of-type {
+    gap: 10px;
+    width: 100%;
+  }
 `
